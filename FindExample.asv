@@ -1,0 +1,69 @@
+%% Load data
+pathname=pwd; %the path where the file ARGdataPub was saved
+q=sprintf('%s%s',pathname,'/ARGdataPub.mat'); 
+load(q)
+
+%% Load the source and response data
+
+%% ORF example set sources!! and response data
+% the source is high intensity developed land cover (HID)  
+% and the response is the log10 relative abundance of human bacteroides 
+% in sediment, but there are two coding options for HID. One is as gridded
+% and equally weighted points. The other is as centroids of polygons with
+% areas 
+
+% CANDIDATE DATABASE 1- HID gridded points
+% The spatial locations of the source
+multisS1{1}=ExampleSources.HIDoptionA(:,1:2); 
+
+% The scale of the source (here each equal to 1 because of being equally
+% weighted gridded points)
+multizS1{1}=ExampleSources.HIDoptionA(:,3); 
+
+% CANDIDATE DATABASE 2- HID polygon centroids with polygon areas
+% The spatial locations of the source
+multisS1{2}=ExampleSources.HIDoptionB(:,1:2); 
+
+% The scale of the source (here each equal to 1 because of being equally
+% weighted gridded points)
+multizS1{2}=ExampleSources.HIDoptionB(:,3); 
+
+% The spatial locations of the response (sampling sites) 
+sR1=ExampleResponses.RAHuBacSed(:,1:2);
+
+% The response value 
+zR1=ExampleResponses.RAHuBacSed(:,3);
+
+%% Get set up for the Find 
+
+% Euclidean
+Ebounds=[50 34000];
+% River Distance
+Rbounds=[50 1300000];
+% Overland Flow
+Obounds=[1 10000];
+% Ground Transport
+Gbounds=[1 340000];
+
+lb=
+
+
+
+
+
+
+
+%% 
+
+rng(1,'twister'); % ensure that selection occurs pseudo randomly
+cvid=5;
+indices=crossvalind('Kfold',zR,cvid);
+for cvi=1:cvid
+    qcvid=(indices~=cvi);
+    notqcvid=(indices==cvi);
+    params{cvi}=SEDCparamOptim(D,zS,zrq,ClimVars,assumcase,lb,ub,mt,qcvid,0,usepenalty); % get the hyperparameters
+    [~,Coef(cvi),pVal(cvi)]=KewauneeObjectiveFunction1(D,zS,params{cvi}(1,1),params{cvi}(1,2),params{cvi}(1,3),0,zrq,assumcase,notqcvid,modeltype,usepenalty);
+end
+SS(icand)=(sum(Coef>0)+1).*sum(Coef);
+weightedParamMSE(icand)=sqrt(var(Coef));
+RS(icand)=SS(icand)./weightedParamMSE(icand);
