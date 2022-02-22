@@ -1,4 +1,5 @@
 function CVstruct=CVlinmdl2(tbl,nkfold)
+% this is a k fold cross validation on the stepwise selection or "Test" stage
 
 CVstruct=struct();
 
