@@ -1,6 +1,6 @@
 %% Load data
 pathname=pwd; %the path where the file ARGdataPub was saved
-q=sprintf('%s%s',pathname,'/ARGdataPub.mat'); 
+q=sprintf('%s%s',pathname,'/FITBacteroides.mat'); 
 load(q)
 
 %% ORF example set source and response data
