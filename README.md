@@ -21,59 +21,59 @@ For data that is not publically accessible, you may request it from the organiza
 Here, we only include the code for obtaining the results of the manuscript. However, to run this code, data needs to be downloaded. The data can be downloaded from https://figshare.com/projects/Characterizing_differences_in_sources_and_contributions_to_fecal_contamination_of_sediment_and_surface_water_with_the_microbial_FIT_framework_DATA/133065
 
 # MATLAB Toolboxes that are needed to run the code: 
-1) Optimization Toolbox
-2) Global Optimization Toolbox
-3) Bioinformatics Toolbox
+  1) Optimization Toolbox
+  2) Global Optimization Toolbox
+  3) Bioinformatics Toolbox
 
 Also, I will note here that these functions have been tested in MATLAB version 2020b and up. 
 
 # Different versions of this code: 
 ## version01 
 ### Functions added 
--coord2dist.m
--FindExample.m
--FindSitesonNetwork.m
--GORFtinypartv2.m
--InformExample.m
--KewauneeObjectiveFunction1.m
--KewauneeObjFunLoad.m
--KewauneePenaltyFunction1.m
--KewauneePenaltyFunction2.m
--KewRoadDistanceMatrix.m
--PrecipitationObjectiveFunctionV2.m
--ReliabilityScore.m
--RunPaperResults.m
--sectionedcoord2dist.m
--sedc2.m
--sedc3.m
--sedc4.m
--SEDCparamOptim.m 
+  -coord2dist.m
+  -FindExample.m
+  -FindSitesonNetwork.m
+  -GORFtinypartv2.m
+  -InformExample.m
+  -KewauneeObjectiveFunction1.m
+  -KewauneeObjFunLoad.m
+  -KewauneePenaltyFunction1.m
+  -KewauneePenaltyFunction2.m
+  -KewRoadDistanceMatrix.m
+  -PrecipitationObjectiveFunctionV2.m
+  -ReliabilityScore.m
+  -RunPaperResults.m
+  -sectionedcoord2dist.m
+  -sedc2.m
+  -sedc3.m
+  -sedc4.m
+  -SEDCparamOptim.m 
 
 ## version02 
 ### File changes
 The file name being called to run the core functions was changed to "FITBacteroides.mat" for...
--FindExample.m
--InformExample.m
--RunPaperResults.m 
+  -FindExample.m
+  -InformExample.m
+  -RunPaperResults.m 
 
 ### Functions added
 The following code was missing and was added: 
--CVlinmdl2.m
--randinterval.m
+  -CVlinmdl2.m
+  -randinterval.m
 
 ### MATLAB Toolboxes required
 It was noted that the following MATLAB Toolboxes were required to run the code: 
-1. Optimization Toolbox
-2. Global Optimization Toolbox
+  1. Optimization Toolbox
+  2. Global Optimization Toolbox
 
 ## version03 
 ### Functions added
 The following code was missing and was added: 
-KewauneeSEDCresults.m 
+  -KewauneeSEDCresults.m 
 
 ### MATLAB Toolboxes required
 It was noted that the following MATLAB Toolboxes were required to run the code: 
-1) Bioinformatics Toolbox 
+  1) Bioinformatics Toolbox 
 
 
 
